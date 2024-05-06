@@ -42,7 +42,7 @@ const LoginForm = (): JSX.Element => {
             console.log("Form submitted")
             console.log(import.meta.env.VITE_BASE_URL);
             try {
-                const response = await axios.post(`http://localhost:5000/api/login`, {
+                const response = await axios.post(`http://localhost:3000/api/login`, {
                     email: values.email,
                     password: values.password,
                 });

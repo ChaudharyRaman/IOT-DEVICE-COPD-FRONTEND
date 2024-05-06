@@ -47,7 +47,7 @@ function NewEmployeeModal({ open, setOpen, setFetchEmployee, fetchEmployee }) {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/add-employee/",
+        "http://localhost:3000/api/add-employee/",
         { name, age },
         config
       );

@@ -34,7 +34,7 @@ const DashboardApp = (): JSX.Element => {
       };
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/employee/",
+        "http://localhost:3000/api/employee/",
         config
       );
       setEmployee(data);

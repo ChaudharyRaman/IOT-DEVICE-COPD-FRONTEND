@@ -48,7 +48,7 @@ const ContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
         };
 
         const { data } = await axios.get<User>(
-          `http://localhost:5000/api/me`,
+          `http://localhost:3000/api/me`,
           config
         );
         setUser(data);
