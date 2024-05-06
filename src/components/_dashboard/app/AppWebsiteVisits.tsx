@@ -102,8 +102,6 @@ export const AppWebsiteVisits = ({
     },
   ];
 
-  console.log(CHART_DATA);
-
   return (
     <Card>
       <CardHeader

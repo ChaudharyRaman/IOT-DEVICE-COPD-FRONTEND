@@ -21,7 +21,7 @@ import axios from "axios";
 import { Patient } from "@/interface/employee";
 
 const DashboardApp = (): JSX.Element => {
-  const { userToken } = useContextState();
+  const { userToken,user } = useContextState();
   const [employee, setEmployee] = useState<Patient[]>();
 
   const fetchEmployeeData = async () => {
@@ -49,10 +49,10 @@ const DashboardApp = (): JSX.Element => {
   console.log("employee", employee);
 
   return (
-    <Page title="Dashboard | Minimal-UI">
+    <Page title="Dashboard">
       <Container maxWidth="xl">
         <Box sx={{ pb: 5 }}>
-          <Typography variant="h4">Hi, Welcome back</Typography>
+          <Typography variant="h4">Hi, {user?.name}</Typography>
         </Box>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
@@ -68,9 +68,9 @@ const DashboardApp = (): JSX.Element => {
             <AppBugReports />
           </Grid> */}
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits employee={employee && employee[7]} />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={10} md={4} lg={10}>
             <AppCurrentVisits employee={employee} />

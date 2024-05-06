@@ -201,7 +201,7 @@ const User = (): JSX.Element => {
         setFetchEmployee={setFetchEmployee}
         fetchEmployee={fetchEmployee}
       ></NewEmployeeModal>
-      <Page title="User | Minimal-UI">
+      <Page title="User">
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
             <AppWeeklySales employee={employee} />
@@ -276,7 +276,7 @@ const User = (): JSX.Element => {
                             hasCOPD,
                           } = row;
                           const isItemSelected = selected.indexOf(name) !== -1;
-
+                          console.log("row",row);
                           return (
                             <TableRow
                               hover
@@ -324,7 +324,7 @@ const User = (): JSX.Element => {
                               </TableCell>
 
                               <TableCell align="right">
-                                <UserMoreMenu />
+                                <UserMoreMenu employee={row}/>
                               </TableCell>
                             </TableRow>
                           );

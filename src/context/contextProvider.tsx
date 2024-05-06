@@ -14,6 +14,7 @@ interface User {
   id: string;
   name: string;
   email: string;
+  company: string;
 }
 
 interface ContextType {
@@ -59,8 +60,6 @@ const ContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     fetchUser();
   }, [userToken, fetchAgain, navigate]);
-
-  console.log(user);
 
   return (
     <Context.Provider

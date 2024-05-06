@@ -64,7 +64,7 @@ const AppCurrentVisits = ({ employee }): JSX.Element => {
 
   return (
     <Card>
-      <CardHeader title="Current Visits" />
+      <CardHeader title="Employees COPD Status" />
       {employee && (
         <ChartWrapperStyle dir="ltr">
           <ReactApexChart
