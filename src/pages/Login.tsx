@@ -58,7 +58,7 @@ const Login = (): JSX.Element => {
                 <ContentStyle>
                     <Stack sx={{ mb: 5 }}>
                         <Typography variant="h4" gutterBottom>
-                            Sign in to Minimal
+                            Sign in to COPD Tracker
                         </Typography>
                         <Typography sx={{ color: 'text.secondary' }}>
                             Enter your details below.

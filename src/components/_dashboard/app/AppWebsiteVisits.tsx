@@ -6,24 +6,6 @@ import { BaseOptionChart } from "../../charts";
 import { ApexOptions } from "apexcharts";
 import { Patient } from "@/interface/employee";
 
-// const CHART_DATA = [
-//   {
-//     name: "CO Concentration",
-//     type: "line",
-//     data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
-//   },
-//   {
-//     name: "NH3 Concentration",
-//     type: "line",
-//     data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
-//   },
-//   //   {
-//   //     name: "Team C",
-//   //     type: "line",
-//   //     data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
-//   //   },
-// ];
-
 export const AppWebsiteVisits = ({
   employee,
 }: {
@@ -31,7 +13,17 @@ export const AppWebsiteVisits = ({
 }): JSX.Element => {
   console.log(employee);
   const chartOptions: ApexOptions = merge(BaseOptionChart(), {
-    stroke: { width: [2, 2], show: true },
+    chart: {
+      zoom: {
+        enabled: false
+      }
+    },
+    stroke: { width: [3, 3], show: true, curve: "straight" },
+    markers: {
+      size: 5,
+      strokeWidth: 2,
+      strokeColors: "#ffffff"
+    },
     plotOptions: { bar: { columnWidth: "11%", borderRadius: 4 } },
     fill: { type: ["solid", "solid"] },
     labels: employee?.copdHistory.map((history) => {
@@ -46,6 +38,7 @@ export const AppWebsiteVisits = ({
     }),
     xaxis: {
       type: "datetime",
+      tickAmount: 5, // Reduced for a more cramped look
       labels: {
         formatter: function (val) {
           return new Date(val).toLocaleString("default", {
@@ -54,9 +47,7 @@ export const AppWebsiteVisits = ({
           });
         },
       },
-      tickAmount: 10,
-      // You might want to adjust `min` and `max` or `tickAmount` based on the actual data spread to improve visibility
-      datetimeUTC: false, // Adjust this based on whether your dates are UTC or local
+      datetimeUTC: false,
     },
     tooltip: {
       shared: true,
@@ -72,22 +63,12 @@ export const AppWebsiteVisits = ({
     },
   });
 
-  //   console.log(
-  //     employee?.copdHistory.map((history) => {
-  //       const dateObj = new Date(history.date);
-  //       return dateObj.toLocaleDateString();
-  //     })
-  //   );
-
   const COConcentration = employee?.copdHistory.map(
     (history) => history.gasConcentration
   );
   const NH3Concentration = employee?.copdHistory.map(
     (history) => history.nh3Concentration
   );
-
-  console.log(COConcentration);
-  console.log(NH3Concentration);
 
   const CHART_DATA = [
     {
